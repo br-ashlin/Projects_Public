@@ -1,7 +1,7 @@
 ﻿#requires -version 2
 <#
 .SYNOPSIS
-  <Overview of script>
+ 
 
 .DESCRIPTION
   Script to populate Active Directory Labs with AD Objects such as Users, Groups, Contacts, OUs.
@@ -13,9 +13,6 @@
   Creation Date:  04/10/2022
   Purpose/Change: Initial script development
   
-.EXAMPLE
-  Create-Labusers -UserCount -OUPath
-  Create-LabGroups -Groupcount -SecOUPath -DistOUPath
 #>
 
 #---------------------------------------------------------[Initialisations & Declarations]--------------------------------------------------------
@@ -64,6 +61,17 @@ Function Create-LabUsers {
         [int32]$Usercount,
         [String]$OUPath
     )
+
+    <#
+.SYNOPSIS
+Creates randomized AD users
+
+.EXAMPLE
+  Create-Labusers -UserCount -OUPath
+  Creates AD Users where $usercount is Amount of users to be created & $OUPath is location of Users to be created
+
+#>
+
 
     for ($i = 0 ; $i -le $Usercount) {
         $randomcount = $nameslistcount | Get-Random -Count 2
